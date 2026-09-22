@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://ddhlafdjf6jks"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sypwq"]
+transparency = 1
+albedo_color = Color(1, 0.3372549, 0.6156863, 0.7058824)
+metallic = 0.78
+metallic_specular = 0.93
+roughness = 0.39
+rim_enabled = true
+rim = 0.14
+rim_tint = 1.0
+backlight_enabled = true
+backlight = Color(0, 0.7647059, 1, 1)
+refraction_scale = 1.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_dwbtc"]
+material = SubResource("StandardMaterial3D_sypwq")
+rings = 4
+ring_segments = 5
+
+[sub_resource type="GDScript" id="GDScript_f12sj"]
+script/source = "extends MeshInstance3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	rotate(Vector3(0,1,0),0.1)
+"
+
+[node name="MeshInstance3D3" type="MeshInstance3D" unique_id=1151792394]
+transform = Transform3D(0.405, 0, 0, 0, 0.405, 0, 0, 0, 0.405, 0, 0, 0)
+mesh = SubResource("TorusMesh_dwbtc")
+script = SubResource("GDScript_f12sj")

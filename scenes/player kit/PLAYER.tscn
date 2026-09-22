@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://u0k5sqb1cd0q"]
+
+[ext_resource type="Script" uid="uid://cfp84hpgjmks6" path="res://scenes/player kit/player.gd" id="1_3lut5"]
+[ext_resource type="Texture2D" uid="uid://bkgrvdshmpji" path="res://icon.svg" id="2_v0q2x"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3xd07"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fi1pp"]
+points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xd07"]
+font_size = 361
+font_color = Color(1, 1, 1, 0.08235294)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_my1b6"]
+radius = 0.5444336
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_haadv"]
+size = Vector3(1, 2.5142817, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1112464371]
+wall_min_slide_angle = 0.0
+script = ExtResource("1_3lut5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=162445181]
+mesh = SubResource("CapsuleMesh_3xd07")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=681204359]
+shape = SubResource("ConvexPolygonShape3D_fi1pp")
+
+[node name="head" type="Node3D" parent="." unique_id=47553240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8551526, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head" unique_id=1107384141]
+
+[node name="RayCast3D" type="RayCast3D" parent="head/Camera3D" unique_id=198846962]
+target_position = Vector3(0, 0, -48.085)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1602006950]
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=2078494279]
+offset_left = 14.0
+offset_top = 144.0
+offset_right = 54.0
+offset_bottom = 167.0
+text = "www"
+
+[node name="Label5" type="Label" parent="CanvasLayer" unique_id=946990566]
+offset_left = 154.0
+offset_top = 20.0
+offset_right = 194.0
+offset_bottom = 43.0
+text = "www"
+
+[node name="Label3" type="Label" parent="CanvasLayer" unique_id=463924757]
+offset_left = 12.0
+offset_top = 165.0
+offset_right = 52.0
+offset_bottom = 188.0
+text = "www"
+
+[node name="Label4" type="Label" parent="CanvasLayer" unique_id=1720839559]
+offset_left = 11.0
+offset_top = 192.0
+offset_right = 51.0
+offset_bottom = 215.0
+text = "www"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=437328821]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=42685272]
+visible = false
+offset_left = 8.0
+offset_top = -255.0
+offset_right = 1158.0
+offset_bottom = 237.0
+scale = Vector2(1, 2.26)
+text = "GRIND"
+label_settings = SubResource("LabelSettings_3xd07")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=2140148414]
+offset_right = 128.0
+offset_bottom = 128.0
+value = 21.0
+texture_under = ExtResource("2_v0q2x")
+texture_progress = ExtResource("2_v0q2x")
+tint_progress = Color(0.6454026, 0.22535497, 0.39954367, 1)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1667842073 groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15707505, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1693964359]
+transform = Transform3D(1.175, 0, 0, 0, 1.175, 0, 0, 0, 1.175, 0, -0.15609163, 0)
+shape = SubResource("CapsuleShape3D_my1b6")
+
+[node name="foot" type="Area3D" parent="." unique_id=2107956682 groups=["foot"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15707505, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="foot" unique_id=899347203]
+transform = Transform3D(1.175, 0, 0, 0, 1.175, 0, 0, 0, 1.175, 0, -0.87153566, 0)
+shape = SubResource("BoxShape3D_haadv")
+
+[node name="Decal" type="Decal" parent="." unique_id=1470755758]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

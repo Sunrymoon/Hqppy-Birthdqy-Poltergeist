@@ -14,6 +14,8 @@ func _process(delta: float) -> void:
 
 func grind(body:Area3D):
 	player = body.get_parent()
+	
+	player.velocity.y = 0
 	var tar = $Marker3D.global_position
 	var player = body.get_parent()
 	var dir = (tar-player.global_position)
@@ -29,8 +31,21 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 		grind(area)
 		print('3333')
 		player.is_on_grind_rail = true
-		
+		%Marker3D.position = Vector3(0,0,7.889)
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
+	if area.is_in_group("foot"):
+		player.is_on_grind_rail = false
+
+
+func _on_area_3d_2_area_entered(area: Area3D) -> void:
+	if area.is_in_group("foot"):
+		grind(area)
+		print('3333')
+		player.is_on_grind_rail = true
+		%Marker3D.position = Vector3(0,0,-0.723)
+
+
+func _on_area_3d_2_area_exited(area: Area3D) -> void:
 	if area.is_in_group("foot"):
 		player.is_on_grind_rail = false

@@ -20,8 +20,8 @@ func grind(body:Area3D):
 		player.velocity.y += (player.JUMP_VELOCITY*2)+((player.add_vel)+1)
 	else:
 		player.velocity.y += (player.JUMP_VELOCITY*2)+(1)
-	player.velocity.x *= 3
-	player.velocity.z *= 3
+	player.velocity.x *= 2
+	player.velocity.z *= 2
 	player.move_and_slide()
 	%AnimationPlayer.play("broken")
 	await %AnimationPlayer.animation_finished

@@ -41,8 +41,8 @@ material = SubResource("StandardMaterial3D_fuwgy")
 radial_segments = 10
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4tn51"]
-height = 0.9947815
-radius = 2.8935547
+height = 1.5107422
+radius = 3.097168
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xd07"]
 transparency = 1

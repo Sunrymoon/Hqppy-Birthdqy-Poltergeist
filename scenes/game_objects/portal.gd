@@ -14,10 +14,10 @@ func grind(body:Area3D):
 	player = body.get_parent()
 
 	var player = body.get_parent()
-	player.add_vel +=5
-	player.velocity.x = 3+(player.velocity.x *2)
-	player.velocity.z = 3+(player.velocity.z *2)
-	player.velocity.y = 2
+	player.add_vel +=1
+	player.velocity.x = player.velocity.x *1.6
+	player.velocity.z = player.velocity.z *1.6
+	player.velocity.y += -(player.velocity.y)*1.5
 	player.move_and_slide()
 	%AnimationPlayer.play("broken")
 	await %AnimationPlayer.animation_finished

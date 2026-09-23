@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://u0k5sqb1cd0q"]
 
 [ext_resource type="Script" uid="uid://cfp84hpgjmks6" path="res://scenes/player kit/player.gd" id="1_3lut5"]
+[ext_resource type="Script" uid="uid://4lhmp3ckwaxo" path="res://scenes/player kit/animations.gd" id="2_cdv22"]
 [ext_resource type="Texture2D" uid="uid://bkgrvdshmpji" path="res://icon.svg" id="2_v0q2x"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3xd07"]
@@ -21,6 +22,10 @@ size = Vector3(1, 2.5142817, 1)
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1112464371]
 wall_min_slide_angle = 0.0
 script = ExtResource("1_3lut5")
+
+[node name="animations" type="Node3D" parent="." unique_id=2102816175]
+unique_name_in_owner = true
+script = ExtResource("2_cdv22")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=162445181]
 mesh = SubResource("CapsuleMesh_3xd07")
@@ -114,8 +119,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15707505, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="foot" unique_id=899347203]
 transform = Transform3D(1.175, 0, 0, 0, 1.175, 0, 0, 0, 1.175, 0, -0.87153566, 0)
 shape = SubResource("BoxShape3D_haadv")
-
-[node name="Decal" type="Decal" parent="." unique_id=1470755758]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
